@@ -108,14 +108,45 @@ function handleClick(css_selector, css_class) {
   }
 
 
-/*   Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe :bomb:.
+/*   
+1.Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe :bomb:.
 I numeri nella lista delle bombe non possono essere duplicati.
-In seguito l'utente clicca su una cella:
+2. In seguito l'utente clicca su una cella:
 se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
-la cella si colora di rosso e la partita termina,
-altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
-La partita termina quando:
- il giocatore clicca su una bomba
-o raggiunge il numero massimo possibile di numeri consentiti.
-Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba. */
 
+3. la cella si colora di rosso e la partita termina,
+altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
+4. La partita termina quando: il giocatore clicca su una bomba
+o raggiunge il numero massimo possibile di numeri consentiti.
+5. Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba. */
+
+
+
+//Funzione che genera numeri casuali con un min e un max
+function RandomNumberGen(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+//Funzione che genera 16 numeri casuali
+function generateBombNumber() {
+  // creo una lista di numeri
+  const randomNumbers = [];
+  let i = 1;
+  //genera 16 numeri casuali non ripetibili 
+  while (randomNumbers.length !== 16) {
+      // genera un numero casuale da 1 a 16
+      const randomNumber = RandomNumberGen(1, 16);
+      // se il numero che genero non è incluso nella lista, aggiungilo
+      if (!randomNumbers.includes(randomNumber)) {
+          randomNumbers.push(randomNumber);
+      }
+     i++;            
+  }
+  return randomNumbers; // la lista di numeri
+};
+console.log(generateBombNumber());
+
+
+
+ 
+  
