@@ -6,11 +6,21 @@
 
 button{
     border-radius: 6px;
-    padding: 0 10px;
+    padding: 1px 20px;
+    background-color: rgb(19, 89, 89);
+    color: white;
 }
 
 body{
     background-color: #7FFFD4;
+}
+
+select{
+    width: 200px;
+    height: 30px;
+    border-radius: 6px;
+    border: 2px solid green;
+    background-color: rgb(176, 246, 71);
 }
 
 header{
@@ -18,7 +28,7 @@ header{
 }
 
 .container{
-    margin: 3rem auto;
+    margin: 2rem auto;
     max-width: 600px;
 }
 
