@@ -122,29 +122,30 @@ o raggiunge il numero massimo possibile di numeri consentiti.
 
 
 
-//Funzione che genera numeri casuali con un min e un max
+//Funzione che genera numeri casuali con un min e un max 
+//che genera 16 numeri casuali
 function RandomNumberGen(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-//Funzione che genera 16 numeri casuali
-function generateBombNumber() {
-  // creo una lista di numeri
-  const randomNumbers = [];
-  let i = 1;
-  //genera 16 numeri casuali non ripetibili 
-  while (randomNumbers.length !== 16) {
-      // genera un numero casuale da 1 a 16
-      const randomNumber = RandomNumberGen(1, 16);
-      // se il numero che genero non è incluso nella lista, aggiungilo
-      if (!randomNumbers.includes(randomNumber)) {
-          randomNumbers.push(randomNumber);
-      }
-     i++;            
+//Funzione 
+function randomNumbers (num1, num2) {
+  const bombe = [];
+
+  for (let i = 1; i <= 16; i++) {
+      const randomNumber = RandomNumberGen(num1, num2)
+      bombe.push(randomNumber)  
   }
-  return randomNumbers; // la lista di numeri
-};
-console.log(generateBombNumber());
+  console.log(bombe);
+  return bombe;       
+}
+
+//UTENTE CLICCA SU CELLA
+//se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
+let bombe = randomNumbers(1,100)
+console.log(bombe);
+
+
 
 
 
