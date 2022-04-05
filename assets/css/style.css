@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #7FFFD4;
+}
+
+header{
+    background-color: white;
+}
+
+.container{
+    margin: 3rem auto;
+}
+
+.cells{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell{
+    border: 1px solid black;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell.selected{
+    color: white;
+    background-color: cornflowerblue;
+}
