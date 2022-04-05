@@ -33,3 +33,7 @@ header{
     color: white;
     background-color: cornflowerblue;
 }
+
+.bg_red_click{
+    background-color: red; 
+}
