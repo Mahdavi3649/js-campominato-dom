@@ -13,6 +13,9 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro. */
     startGame(event);
  })
 
+ let bombArray;
+
+
 
  /**
  * Starts the game
@@ -43,7 +46,11 @@ function startGame(event) {
     }
     //console.log(cells_number, cols_number);
     generate_grid(cells_number, cols_number);
-    handleClick(".cell","selected")
+    handleClick(".cell")
+
+    // Dichiaro una variabile per la lista di celle che contengono le bombe
+    bombArray = generateBombNumbers(1,cells_number)
+    //console.log(bombArray); 
      
  }
 
@@ -87,9 +94,9 @@ function startGame(event) {
  * @param {string} css_class css class name
  */
 
-function handleClick(css_selector, css_class) {
+function handleClick(selector) {
       // 1. selezionare tutte le celle querySelectorAll
-      const cells = document.querySelectorAll(css_selector)
+      const cells = document.querySelectorAll(selector)
       console.log(cells);
       
       // 2. ciclare tra gli elementi della dom
@@ -102,7 +109,12 @@ function handleClick(css_selector, css_class) {
               console.log(this);
               // 4. evidenziare la cella di azzurro. 
               //this.style.backgroundColor = 'cornflowerblue'
-              this.classList.add(css_class)
+              if(bombArray.includes(parseInt(this.innerHTML))){
+                this.classList.add("red");
+              } else {
+                this.classList.add("blue");
+              }
+            
           })
       } 
   }
@@ -129,38 +141,19 @@ function RandomNumberGen(min, max) {
 };
 
 //Funzione 
-function randomNumbers (num1, num2) {
-  const bombe = [];
+function generateBombNumbers (min, max) {
+  const bombNumbers  = [];
 
-  for (let i = 1; i <= 16; i++) {
-      const randomNumber = RandomNumberGen(num1, num2)
-      bombe.push(randomNumber)  
-  }
-  console.log(bombe);
-  return bombe;       
-}
-
-//UTENTE CLICCA SU CELLA
-//se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
-let bombe = randomNumbers(1,100)
-console.log(bombe);
-
-let numbersGuessed = [];
-
-
-function willIExplode (square, number) {
-
-  square.addEventListener('click', function () {
-      if (!(bombe.includes(number))) {
-        square.classList.add('selected');
-          numbersGuessed.push(number);
-      } else if ((bombe.includes(number))) {
-        square.classList.add('explode');
-          unCLickable();
-          alert('Hai perso, il tuo punteggio è: ' + numbersGuessed.length);
+  while(bombNumbers.length < 16) {
+      const randomNumber = RandomNumberGen(min, max)
+      if(!bombNumbers.includes(randomNumber)){
+        bombNumbers.push(randomNumber)
       }
-  });
+  }
+  console.log(bombNumbers);
+  return bombNumbers;       
 }
+
 
 
 

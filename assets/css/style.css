@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+button{
+    border-radius: 6px;
+    padding: 0 10px;
+}
+
 body{
     background-color: #7FFFD4;
 }
@@ -14,6 +19,7 @@ header{
 
 .container{
     margin: 3rem auto;
+    max-width: 600px;
 }
 
 .cells{
@@ -29,15 +35,11 @@ header{
     align-items: center;
 }
 
-.cell.selected{
+.blue{
     color: white;
     background-color: cornflowerblue;
 }
 
-.explode{
+.red{
     background-color: red; 
-}
-
-.clicked{
-    background-color: #6495ED;
 }
