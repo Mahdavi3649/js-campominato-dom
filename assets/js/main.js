@@ -145,7 +145,22 @@ function randomNumbers (num1, num2) {
 let bombe = randomNumbers(1,100)
 console.log(bombe);
 
+let numbersGuessed = [];
 
+
+function willIExplode (square, number) {
+
+  square.addEventListener('click', function () {
+      if (!(bombe.includes(number))) {
+        square.classList.add('selected');
+          numbersGuessed.push(number);
+      } else if ((bombe.includes(number))) {
+        square.classList.add('explode');
+          unCLickable();
+          alert('Hai perso, il tuo punteggio è: ' + numbersGuessed.length);
+      }
+  });
+}
 
 
 

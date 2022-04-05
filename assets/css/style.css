@@ -34,6 +34,10 @@ header{
     background-color: cornflowerblue;
 }
 
-.bg_red_click{
+.explode{
     background-color: red; 
+}
+
+.clicked{
+    background-color: #6495ED;
 }
